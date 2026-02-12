@@ -17,7 +17,7 @@ def aasta_summa():
         if syear==year[i]:
             goals_per_year += + home_goals[i] + away_goals[i]
 
-print (syear,"aastal löödi", goals_per_year, "väravat.")
+    print (syear,"aastal löödi", goals_per_year, "väravat.")
 
 def aasta_riik():
     print("Vali aasta ja riik. Saadan tabeli selle riigi mängudega tollel aastal.")
