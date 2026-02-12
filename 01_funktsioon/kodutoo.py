@@ -15,7 +15,7 @@ def aasta_summa():
     goals_per_year = 0
     for i in range(len(year)):
         if syear==year[i]:
-            goals_per_year += + home_goals[i] + away_goals[i]
+            goals_per_year += home_goals[i] + away_goals[i]
 
     print (syear,"aastal löödi", goals_per_year, "väravat.")
 
@@ -32,3 +32,6 @@ def aasta_riik():
     print("-" * 75)
     for i in indexes:
         print(f"{date[i]:<15} {home_team[i]:<15} {away_team[i]:<15} {home_goals[i]:<10} {away_goals[i]:<10} {winner[i]:<10}")
+
+aasta_riik()
+aasta_summa()
