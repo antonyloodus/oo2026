@@ -28,8 +28,7 @@ def aasta_riik():
         if ssyear==year[j]:
             if home_team[j]==scountry or away_team[j]==scountry:
                 indexes.append(j)
-
-print(f"{'Date':<15} {'Home':<15} {'Away':<15} {'HomeGoals':<10} {'AwayGoals':<10} {'Winner':<10}")
-print("-" * 75)
-for i in indexes:
-    print(f"{date[i]:<15} {home_team[i]:<15} {away_team[i]:<15} {home_goals[i]:<10} {away_goals[i]:<10} {winner[i]:<10}")
+    print(f"{'Date':<15} {'Home':<15} {'Away':<15} {'HomeGoals':<10} {'AwayGoals':<10} {'Winner':<10}")
+    print("-" * 75)
+    for i in indexes:
+        print(f"{date[i]:<15} {home_team[i]:<15} {away_team[i]:<15} {home_goals[i]:<10} {away_goals[i]:<10} {winner[i]:<10}")
