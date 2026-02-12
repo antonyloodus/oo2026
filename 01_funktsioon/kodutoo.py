@@ -10,6 +10,7 @@ away_goals = df["away_goals"].tolist()
 match_id = df["match_id"].tolist()
 winner = df["winner"].tolist()
 
+def aasta_summa():
 syear=int(input("Kirjuta aasta (1974-2022) ja ma ütlen, mitu väravat sellel aastal jalgpalli MM-i raames löödi: "))
 goals_per_year = 0
 for i in range(len(year)):
@@ -18,6 +19,7 @@ for i in range(len(year)):
 
 print (syear,"aastal löödi", goals_per_year, "väravat.")
 
+def aasta_riik():
 print("Vali aasta ja riik. Saadan tabeli selle riigi mängudega tollel aastal.")
 ssyear=int(input("Vali aasta (1974-2022): "))
 scountry=input("Vali riik: ")
