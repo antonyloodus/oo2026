@@ -1,5 +1,4 @@
 class Crosshair:
-    ch_dir = ["left", "right", "up", "down"]
 
     def __init__(self, x, y):
         self.x=x
@@ -14,3 +13,4 @@ class Crosshair:
             self.y += 1
         elif aim_direction == "down":
             self.y -= 1
+
