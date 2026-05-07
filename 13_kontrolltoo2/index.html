@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <title>Kontrolltöö 2</title>
+</head>
+<body>
+    <h1>Kontrolltöö 2</h1>
+ 
+    <h2>Lisa geen</h2>
+    <input id="uusNimetus" placeholder="Nimetus" />
+    Alleel 1: <select id="a1"><option value="1">+</option><option value="0">-</option></select>
+    Alleel 2: <select id="a2"><option value="1">+</option><option value="0">-</option></select>
+    <button onclick="lisaGeen()">Lisa</button>
+ 
+    <h2>Otsi geene</h2>
+    <input id="otsing" oninput="kuvaNimekiri()" placeholder="Otsi geeni..." />
+    <p id="valituInfo">Valitud vanemad: -</p>
+    <ul id="geeninimekiri"></ul>
+    <button onclick="kombineeri()">Kombineeri</button>
+ 
+    <h2>Järglased</h2>
+    <ul id="järglased"></ul>
+ 
+    <script src="geenid.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
