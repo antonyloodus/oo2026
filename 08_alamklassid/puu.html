@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Fraktaalpuu</title>
+    <meta charset="utf-8" />
+    <script src="puu.js"></script>
+    <script>
+        let puu;
+        let sygavus = 5;
+        // ehitab rekursiivselt komposiitpuu: iga oks saab kaks alamoksa,
+        // kõige sügavamal on lehed
+        function ehitaOks(s, nurk){
+           const oks = new Oks(nurk, 0.75);
+           if(s <= 0){
+              oks.lisa(new Leht("green"));
+              return oks;
+           }
+           oks.lisa(ehitaOks(s - 1, 0.5));    // vasak haru
+           oks.lisa(ehitaOks(s - 1, -0.5));   // parem haru
+           return oks;
+        }
+        function startPage(){
+           ehitaPuu();
+        }
+        function ehitaPuu(){
+           puu = ehitaOks(sygavus, 0);
+           joonista();
+        }
+        function joonista(){
+           const g = canvas1.getContext("2d");
+           g.clearRect(0, 0, canvas1.width, canvas1.height);
+           puu.joonista(g, canvas1.width / 2, canvas1.height - 10, Math.PI / 2, 90);
+           document.getElementById("info").innerText =
+              "Sügavus: " + sygavus + ", puuosi kokku: " + puu.arv();
+        }
+        function suurenda(){
+           sygavus = Math.min(8, sygavus + 1);
+           ehitaPuu();
+        }
+        function vahenda(){
+           sygavus = Math.max(1, sygavus - 1);
+           ehitaPuu();
+        }
+    </script>
+  </head>
+  <body onload="startPage()">
+      <canvas id="canvas1" width="600" height="450"></canvas><br />
+      <button onclick="vahenda()">− haru</button>
+      <button onclick="suurenda()">+ haru</button>
+      <span id="info"></span>
+  </body>
+</html>
