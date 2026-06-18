@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Takisti</title>
+    <meta charset="utf-8" />
+    <script src="takisti1.js"></script>
+    <script>
+        let r1, r2;
+        function startPage(){
+           const g = canvas1.getContext("2d");
+           r1 = new Resistor("R1", g, 20, 20);              // lühike nimi -> laius 50
+           r2 = new Resistor("Koormustakisti", g, 20, 70);  // > 10 tähemärki -> laius 60
+        }
+    </script>
+  </head>
+  <body onload="startPage()">
+      <canvas id="canvas1" width="400" height="150"></canvas>
+  </body>
+</html>

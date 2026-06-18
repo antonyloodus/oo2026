@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Takisti</title>
+    <script src="takisti4.js"></script>
+    <script>
+        let r1;
+        function startPage(){
+           r1=new Resistor(110, canvas1.getContext("2d"), 50, 150, 50);  
+           range1.value=r1.getR();
+           pinge1.value=r1.getU();         
+        }
+    </script>
+  </head>
+  <body onload="startPage()">
+      <canvas id="canvas1" width="400" height="100"></canvas><br />
+      Takistus: <input type="range" id="range1" min="100" max="1000" onclick="r1.setR(this.valueAsNumber)" /><br />
+      Pinge: <input type="range" id="pinge1" value="5" min="0" max="10" onclick="r1.setU(this.valueAsNumber)" />
+  </body>
+</html>

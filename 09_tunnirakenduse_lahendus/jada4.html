@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pesastatud jadaühendused</title>
+    <meta charset="utf-8" />
+    <script src="jada4.js"></script>
+    <script>
+        let valine, sisemine1, sisemine2;
+        function startPage(){
+           valine = new SeriesCircuit("Väline");
+           sisemine1 = new SeriesCircuit("Sisemine 1");
+           sisemine2 = new SeriesCircuit("Sisemine 2");
+           // pesastamine: kaks jadaühendust välise jadaühenduse sees
+           valine.push(sisemine1);
+           valine.push(sisemine2);
+           // paar algtakistit, et midagi näha oleks
+           sisemine1.push(new Resistor("R1", 110));
+           sisemine2.push(new Resistor("R2", 220));
+           joonista();
+        }
+        function valitudYhendus(){
+           const v = document.getElementById("siht").value;
+           if(v == "sisemine1") return sisemine1;
+           if(v == "sisemine2") return sisemine2;
+           return valine;
+        }
+        function lisa(){
+           const nimi = document.getElementById("nimi").value || "R";
+           const r = Number(document.getElementById("vaartus").value) || 100;
+           valitudYhendus().push(new Resistor(nimi, r));
+           joonista();
+        }
+        function joonista(){
+           const g = canvas1.getContext("2d");
+           g.clearRect(0, 0, canvas1.width, canvas1.height);
+           valine.draw(g, 10, 70);
+        }
+    </script>
+  </head>
+  <body onload="startPage()">
+      <canvas id="canvas1" width="800" height="180"></canvas><br />
+      Nimi: <input type="text" id="nimi" value="R3" />
+      Takistus (Ω): <input type="number" id="vaartus" value="330" />
+      Lisa ühendusse:
+      <select id="siht">
+         <option value="valine">Väline</option>
+         <option value="sisemine1">Sisemine 1</option>
+         <option value="sisemine2">Sisemine 2</option>
+      </select>
+      <button onclick="lisa()">Lisa takisti</button>
+  </body>
+</html>
