@@ -1,6 +1,5 @@
 // ühine baasklass: nii oks kui leht on "puuosa".
 // Oks on komposiit (sisaldab teisi puuosi), Leht on leht-element.
-// See on sama muster nagu takistiskeemis (AbstractResistor + Resistor + SeriesCircuit).
 abstract class Puuosa{
     abstract joonista(g: any, x: number, y: number, nurk: number, pikkus: number): void;
     abstract arv(): number;   // mitu puuosa kokku
